@@ -1,31 +1,33 @@
-import javax.lang.model.util.ElementScanner6;
-import javax.swing.*;
-import java.util.regex.Pattern;
+import java.util.Scanner;
 
 public class Triangle {
 public static void main(String[] args) {
-    int numOfRows;
-    String numOfRowsText;
+    Scanner scanner = new Scanner(System.in);
+    int numOfRows, totalColumns;
 
-    JOptionPane.showMessageDialog(null, "Welcome to the Game of Triangle.");
-    numOfRowsText = "";
+    System.out.println("Welcome to the Game of Triangle.");
 
     while (true) {
-        numOfRowsText = JOptionPane.showInputDialog("Please enter an odd number [1-20]: ");
-        if (numOfRowsText.isEmpty() || Pattern.matches("[a-zA-Z]+", numOfRowsText)) {
-            numOfRows = Integer.parseInt(numOfRowsText);
-            if (numOfRows < 0 || numOfRows > 20) {
-                continue;
-            } else {
-                JOptionPane.showMessageDialog(null, "Thanks, here is the triangle with 5 rows:");
-                break;
-            }
+        System.out.print("Please enter an odd number [1-20]: ");
+        numOfRows = scanner.nextInt();
+        if (numOfRows > 0 && numOfRows < 20 && numOfRows % 2 != 0) {
+            System.out.println("Thanks, here is the triangle with 5 rows:");
+            break;
         }
-        JOptionPane.showMessageDialog(null, "The number must be odd numbers between 1 and 20.");
+        System.out.println("The number must be odd numbers between 1 and 20.");
     }
 
-    for (int i = 0; i < numOfRows; i++) {
-        //System.out.print();
+    totalColumns = (numOfRows * 2) - 1;
+    for (int i = 1; i < numOfRows + 1; i++) {
+        int numOfXs = (i * 2) - 1;
+        int numOfSpaces = totalColumns - numOfXs;
+        System.out.println();
+        for (int j = 0; j < numOfSpaces / 2; j++)
+            System.out.print(" ");
+        for (int k = 0; k < numOfXs; k++)
+            System.out.print("x");
+        for (int j = 0; j < numOfSpaces / 2; j++)
+            System.out.print(" ");
     }
 }
 }

@@ -1,9 +1,14 @@
 import java.util.Scanner;
 
 public class Triangle {
+// Written by: Mike Baldwin
+// Project 5 - Part 4 - Triangle
+// Builds a triangle in the console based upon a number of rows count provided by the
+// user
+
 public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int numOfRows, totalColumns;
+    int numOfRows, totalColumns, numOfXs, numOfSpaces;
 
     System.out.println("Welcome to the Game of Triangle.");
 
@@ -19,8 +24,8 @@ public static void main(String[] args) {
 
     totalColumns = (numOfRows * 2) - 1;
     for (int i = 1; i < numOfRows + 1; i++) {
-        int numOfXs = (i * 2) - 1;
-        int numOfSpaces = totalColumns - numOfXs;
+        numOfXs = (i * 2) - 1;
+        numOfSpaces = totalColumns - numOfXs;
         System.out.println();
         for (int j = 0; j < numOfSpaces / 2; j++)
             System.out.print(" ");
